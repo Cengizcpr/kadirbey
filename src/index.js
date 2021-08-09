@@ -7,11 +7,13 @@ import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
 import { Provider } from "react-redux";
 import { fetchProducts } from "./redux/actions/productActions";
+import { fetchCars } from "./redux/actions/carActions";
 import rootReducer from "./redux/reducers/rootReducer";
 import products from "./data/products.json";
 import App from "./App";
 import "./assets/scss/style.scss";
 import * as serviceWorker from "./serviceWorker";
+import axios from "axios";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -21,8 +23,19 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk, save()))
 );
 
-// fetch products from json file
-store.dispatch(fetchProducts(products));
+axios
+  .get("http://192.168.1.51:2000/getCar", {
+    auth: {
+      username: "osicrew",
+      password: "Osiosi2011?Assan",
+    },
+  })
+  .then((res) => {
+    store.dispatch(fetchProducts(res.data.response));
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 ReactDOM.render(
   <Provider store={store}>

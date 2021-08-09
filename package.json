@@ -60,6 +60,7 @@
       "ie 11"
     ]
   },
+  "proxy":"http://192.168.1.51:2000/",
   "devDependencies": {
     "redux-devtools-extension": "^2.13.8",
     "sass": "^1.29.0"

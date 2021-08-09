@@ -37,6 +37,7 @@ const ShopGridStandard = ({location, products}) => {
     }
 
     const getSortParams = (brand,color,gear,caseType,traction,power,all) => {
+        console.log(color)
         setBrand(brand);
         setColor(color);
         setGear(gear);
@@ -64,14 +65,15 @@ const ShopGridStandard = ({location, products}) => {
     return (
         <Fragment>
             <MetaTags>
-                <title>Flone | Shop Page</title>
+                <title>Kadirbey Oto | Güvendiğiniz Hizmet</title>
                 <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
             </MetaTags>
 
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Shop</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Anasayfa</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Araç Satış</BreadcrumbsItem>
 
-            <LayoutOne headerTop="visible">
+            <LayoutOne headerContainerClass="container-fluid"
+        headerPaddingClass="header-padding-1">
                 {/* breadcrumb */}
                 <Breadcrumb />
 

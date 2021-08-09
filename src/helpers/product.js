@@ -111,8 +111,8 @@ export const getSortedProducts = (products,brand,color,gear,caseType,traction,po
   if(products){
     if(all==="all"){
     return products.filter(
-      product => (product.brand === brand || brand =="")  &&  (product.gear === gear || gear =="") &&  (product.variation[0].color  === color || color =="")
-      &&  (product.power === power || power =="")  &&  (product.case === caseType || caseType=="")  &&  (product.traction === traction || traction=="")
+      product => (product.brand === brand || brand =="" || brand == "Seçiniz..")  &&  (product.gear === gear || gear =="" || gear == "Seçiniz..") &&  (product.variation[0].color  === color || color =="" || color == "Seçiniz..")
+      &&  (product.power === power || power =="" || power == "Seçiniz..")  &&  (product.case === caseType || caseType=="" || caseType == "Seçiniz..")  &&  (product.traction === traction || traction=="" || traction == "Seçiniz..")
       );
     }
 

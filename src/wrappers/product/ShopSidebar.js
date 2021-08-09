@@ -11,27 +11,15 @@ import {
   getIndividualTraction,
   getIndividualPower
 } from "../../helpers/product";
-import ShopSearch from "../../components/product/ShopSearch";
-import ShopColor from "../../components/product/kadirbey/ShopColor";
-import ShopCase from "../../components/product/kadirbey/ShopCase";
-import ShopGear from "../../components/product/kadirbey/ShopGear";
-import ShopBrand from "../../components/product/kadirbey/ShopBrand";
-import ShopPrice from "../../components/product/kadirbey/ShopPrice";
-import ShopTraction from "../../components/product/kadirbey/ShopTraction";
-import ShopPower from "../../components/product/kadirbey/ShopPower";
-import ShopModel from "../../components/product/kadirbey/ShopModel";
 
-//import ShopSize from "../../components/product/ShopSize";
-import ShopTag from "../../components/product/ShopTag";
-import ShopCategories from "../../components/product/ShopCategories";
 
 const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("Seçiniz..");
   const [brand, setBrand] = useState("Seçiniz..");
-  const [gear, setGear] = useState("");
-  const [caseType, setCase] = useState("");
-  const [traction, setTraction] = useState("");
-  const [power, setPower] = useState("");
+  const [gear, setGear] = useState("Seçiniz..");
+  const [caseType, setCase] = useState("Seçiniz..");
+  const [traction, setTraction] = useState("Seçiniz..");
+  const [power, setPower] = useState("Seçiniz..");
   const [name,setName]=useState("Seçiniz..");
   const handleChangeGear = (e) => { 
     setGear(e.target.value)
@@ -57,9 +45,13 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
   const handleSubmitClear = (e) => {
     getSortParams("clear");
     setBrand("Seçiniz..")
+    setPower("Seçiniz..")
+    setTraction("Seçiniz..")
+    setCase("Seçiniz..")
+    setColor("Seçiniz..")
+    setGear("Seçiniz..")
 
   }
-  const uniqueCategories = getIndividualCategories(products);
   const uniqueColors = getIndividualColors(products);
   const uniqueBrand = getIndividualBrands(products);
   const uniqueCase = getIndividualCase(products);
@@ -67,30 +59,9 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
   const uniqueTraction = getIndividualTraction(products);
   const uniquePower = getIndividualPower(products);
 
-  //const uniqueSizes = getProductsIndividualSizes(products);
-  const uniqueTags = getIndividualTags(products);
-
   return (
     <div className={`sidebar-style ${sideSpaceClass ? sideSpaceClass : ""}`}>
-      {/* shop search */}
-        {/* filter by categories 
-      <ShopCategories
-        brands={uniqueBrand}
-        getSortParams={getSortParams}
-      />
-    */}   
-
-      {/*  <ShopBrand brands={uniqueBrand} getSortParamsBrand={getSortParamsBrand} />
-            <ShopGear gears={uniqueGear} getSortParams={getSortParams} />
-
-      <ShopModel colors={uniqueColors} getSortParamsModel={getSortParamsModel} />
-
-     <ShopColor colors={uniqueColors} getSortParams={getSortParams} />
-      <ShopCase cases={uniqueCase} getSortParams={getSortParams} />
-      <ShopTraction tractions={uniqueTraction} getSortParams={getSortParams} />
-      <ShopPower powers={uniquePower} getSortParams={getSortParams} /> 
-
-      <ShopPrice colors={uniqueColors} getSortParams={getSortParams} />*/}
+     
       <div className="sidebar-widget">
       <div className="sidebar-widget-list">
         <div className="row">
@@ -105,7 +76,7 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
         <div className="row">
           <div className="col-lg-3 align-text-bottom mt-2">Marka:</div>
           <div className="col-lg-9 float-left">
-            <select id="cen" className="form-control float-left" onChange={handleChangeBrand} value={brand}>
+            <select id="cen" className="form-control float-left" onChange={handleChangeBrand} value={brand} >
               <option>{brand}</option>
               {uniqueBrand.map((color, key) => {
                 return <option key={key}>{color} </option>;
@@ -121,8 +92,8 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
         <div className="row">
           <div className="col-lg-3 align-text-bottom mt-2">Renk:</div>
           <div className="col-lg-9 float-left">
-            <select className="form-control float-left" onChange={handleChangeColor} >
-              <option>{name}</option>
+            <select className="form-control float-left" onChange={handleChangeColor} value={color}>
+              <option>{color}</option>
               {uniqueColors.map((color, key) => {
                 return <option key={key}>{color} </option>;
               })}
@@ -137,8 +108,8 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
         <div className="row">
           <div className="col-lg-3 align-text-bottom">Vites Tipi:</div>
           <div className="col-lg-9 float-left">
-            <select className="form-control float-left" onChange={handleChangeGear}>
-              <option>{name}</option>
+            <select className="form-control float-left" onChange={handleChangeGear} value={gear}>
+              <option>{gear}</option>
               {uniqueGear.map((color, key) => {
                 return <option key={key}>{color} </option>;
               })}
@@ -153,8 +124,8 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
         <div className="row">
           <div className="col-lg-3 align-text-bottom">Kasa Tipi:</div>
           <div className="col-lg-9 float-left">
-            <select className="form-control float-left" onChange={handleChangeCase}>
-              <option>{name}</option>
+            <select className="form-control float-left" onChange={handleChangeCase} value={caseType}> 
+              <option>{caseType}</option>
               {uniqueCase.map((color, key) => {
                 return <option key={key}>{color} </option>;
               })}
@@ -169,8 +140,8 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
         <div className="row">
           <div className="col-lg-3 align-text-bottom mt-2">Çekiş:</div>
           <div className="col-lg-9 float-left">
-            <select className="form-control float-left" onChange={handleChangeTraction}>
-              <option>{name}</option>
+            <select className="form-control float-left" value={traction} onChange={handleChangeTraction}>
+              <option>{traction}</option>
               {uniqueTraction.map((color, key) => {
                 return <option key={key}>{color} </option>;
               })}
@@ -185,8 +156,8 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
         <div className="row">
           <div className="col-lg-3 align-text-bottom mt-2">Beygir:</div>
           <div className="col-lg-9 float-left">
-            <select className="form-control float-left" onChange={handleChangePower}>
-              <option>{name}</option>
+            <select className="form-control float-left" value={power} onChange={handleChangePower}>
+              <option>{power}</option>
               {uniquePower.map((color, key) => {
                 return <option key={key}>{color} </option>;
               })}
