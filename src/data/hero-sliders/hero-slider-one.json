@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Smart Products",
+    "subtitle": "Yol Arkadaşınızı İyi Seçin",
+    "image": "/assets/img/slider/kadirbey-slider-1.jpg",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 2,
+    "title": "Smart Products",
+    "subtitle": "Kolay ve Güvenilir Süreç",
+    "image": "/assets/img/slider/kadirbey-slider-2.jpg",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 3,
+    "title": "Smart Products",
+    "subtitle": "İkinci El Aracınızı Güvenle Seçin",
+    "image": "/assets/img/slider/kadirbey-slider-3.jpg",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id": 4,
+    "title": "Smart Products",
+    "subtitle": "Buraya Başlık Gelecek",
+    "image": "/assets/img/slider/kadirbey-slider-4.jpg",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id":5,
+    "title": "Smart Products",
+    "subtitle": "Buraya Başlık Gelecek",
+    "image": "/assets/img/slider/kadirbey-slider-5.jpg",
+    "url": "/shop-grid-standard"
+  },
+  {
+    "id":6,
+    "title": "Smart Products",
+    "subtitle": "Buraya Başlık Gelecek",
+    "image": "/assets/img/slider/kadirbey-slider-6.jpg",
+    "url": "/shop-grid-standard"
+  }
+]

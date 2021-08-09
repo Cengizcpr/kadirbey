@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "image": "https://s0.shbdn.com/assets/images/ford:bc5295c38a7b9d69970d6f5dfa4f0a2f.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "2",
+    "image": "https://s0.shbdn.com/assets/images/citroen:b4b836cfa42a0955611852a6b0515da0.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "3",
+    "image": "https://s0.shbdn.com/assets/images/hyundai:c9666de743dc115f719e346cac2a4347.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "4",
+    "image": "https://s0.shbdn.com/assets/images/opel:292d2e1648d1b4fa8895bdf5ab389c15.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "5",
+    "image": "https://s0.shbdn.com/assets/images/dacia:c2a197a8a8fe9a76218be12ffe917baf.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "6",
+    "image": "https://s0.shbdn.com/assets/images/peugeot:014be422d778b93bb4329c1d32d3200d.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "7",
+    "image": "https://s0.shbdn.com/assets/images/audi:860a9cc1ee61b28938e4bf1ed9d426b5.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "8",
+    "image": "https://s0.shbdn.com/assets/images/honda:167ccbacddf2bb48e8e5f56a2969cc63.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "9",
+    "image": "https://s0.shbdn.com/assets/images/renault:04399d5320414de222f535a9d356b0a3.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "10",
+    "image": "https://s0.shbdn.com/assets/images/mazda:caac654c388525f1d771761c0bcf3704.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "11",
+    "image": "https://s0.shbdn.com/assets/images/bmw:a279c3e055a4b4136238db6f8c88c265.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "12",
+    "image": "https://s0.shbdn.com/assets/images/mercedes-benz:3fbd2d2aaeaa9d99674b9187f2e3bf2c.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "13",
+    "image": "https://s0.shbdn.com/assets/images/volkswagen:994c7a6c6014ddc4a612a1ca073bf198.png",
+    "link": "/shop-grid-standard"
+  },
+  {
+    "id": "14",
+    "image": "https://s0.shbdn.com/assets/images/fiat:5fb43a6862f566291869639d20d6c2d1.png",
+    "link": "/shop-grid-standard"
+  }
+]

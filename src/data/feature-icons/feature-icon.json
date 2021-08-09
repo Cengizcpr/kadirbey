@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/img/icon/1.png",
+    "title": "01",
+    "subtitle": "Detaylı Ekspertiz"
+  },
+  {
+    "id": 2,
+    "image": "/assets/img/icon/2.png",
+    "title": "02",
+    "subtitle": "Hasar Kaydı Tramer Sorgu"
+  },
+  {
+    "id": 3,
+    "image": "/assets/img/icon/3.png",
+    "title": "03",
+    "subtitle": "Atölye İşlemleri"
+  },
+  {
+    "id": 4,
+    "image": "/assets/img/icon/4.png",
+    "title": "04",
+    "subtitle": "Araç Estetik"
+  },
+  {
+    "id": 5,
+    "image": "/assets/img/icon/5.png",
+    "title": "05",
+    "subtitle": "Sorunsuz Devir"
+  }
+]
