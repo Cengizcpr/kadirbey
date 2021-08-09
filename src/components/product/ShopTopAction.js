@@ -9,24 +9,23 @@ const ShopTopAction = ({
   sortedProductCount
 }) => {
   return (
-    <div className="shop-top-bar mb-35">
-      <div className="select-shoing-wrap">
+    <div className="shop-top-bar mb-35 ">
+      <div className="select-shoing-wrap float-right">
         <div className="shop-select">
           <select
             onChange={e => getFilterSortParams("filterSort", e.target.value)}
           >
-            <option value="default"> Sırala</option>
-            <option value="priceLowToHigh">Artan Fiyat</option>
-            <option value="priceHighToLow">Azalan Fiyat</option>
-         
+            <option value="default">Gelişmiş sıralama</option>
+            <option value="priceHighToLow">Fiyata Göre(Önce en yüksek)</option>
+            <option value="priceLowToHigh">Fiyata Göre(Önce en düşük)</option>
           </select>
         </div>
-        <p className="float-right">
-          Gösterilen {sortedProductCount} - {productCount} 
+        <p>
+           {productCount} sonuçtan {sortedProductCount}  gösteriliyor
         </p>
       </div>
 
-     
+      
     </div>
   );
 };

@@ -56,10 +56,70 @@ export const getProductCartQuantity = (cartItems, product, color, size) => {
     return 0;
   }
 };
+//-----
+
+
+
+
+
+
+
+
+
+
+
+export const getSortedFilterProducts = (products,sortType,sortValue) => {
+  console.log(sortType)
+
+  if (sortType === "filterSort") {
+    let sortProducts = [...products];
+    if (sortValue === "default") {
+      return sortProducts;
+    }
+    if (sortValue === "priceHighToLow") {
+      return sortProducts.sort((a, b) => {
+        return b.price - a.price;
+      });
+    }
+    if (sortValue === "priceLowToHigh") {
+      return sortProducts.sort((a, b) => {
+        return a.price - b.price;
+      });
+    }
+  }
+  return products
+
+}
+
+
+//-----
 
 //get products based on category
-export const getSortedProducts = (products, sortType, sortValue) => {
-  if (products && sortType && sortValue) {
+export const getSortedProducts = (products,brand,color,gear,caseType,traction,power,all) => {
+  //    getSortParams(brand,color,gear,caseType,traction,power)
+
+  console.log(brand)
+  if(brand==="clear"){
+    return products
+  }
+
+
+
+
+
+
+  if(products){
+    if(all==="all"){
+    return products.filter(
+      product => (product.brand === brand || brand =="")  &&  (product.gear === gear || gear =="") &&  (product.variation[0].color  === color || color =="")
+      &&  (product.power === power || power =="")  &&  (product.case === caseType || caseType=="")  &&  (product.traction === traction || traction=="")
+      );
+    }
+
+  }
+  
+ /* if (products && sortType && sortValue) {
+    const a="brands"
     if (sortType === "category") {
       return products.filter(
         product => product.category.filter(single => single === sortValue)[0]
@@ -76,6 +136,30 @@ export const getSortedProducts = (products, sortType, sortValue) => {
           product.variation &&
           product.variation.filter(single => single.color === sortValue)[0]
       );
+    }if (a === "brands") {
+      return products.filter(
+        product => product.brand === sortType &&  product.gear === sortValue
+        );
+    }
+    if (sortType === "gear") {
+      return products.filter(
+        product => product.gear === sortValue
+        );
+    }
+    if (sortType === "traction") {
+      return products.filter(
+        product => product.traction === sortValue
+        );
+    }
+    if (sortType === "case") {
+      return products.filter(
+        product => product.case === sortValue
+        );
+    }
+    if (sortType === "powers") {
+      return products.filter(
+        product => product.power === sortValue
+        );
     }
     if (sortType === "size") {
       return products.filter(
@@ -102,7 +186,7 @@ export const getSortedProducts = (products, sortType, sortValue) => {
         });
       }
     }
-  }
+  }*/
   return products;
 };
 
@@ -156,12 +240,78 @@ export const getIndividualColors = products => {
         product.variation.map(single => {
           return productColors.push(single.color);
         })
+        
       );
     });
   const individualProductColors = getIndividualItemArray(productColors);
   return individualProductColors;
 };
+// get individual colors
+export const getIndividualBrands = products => {
+  let productBrands= [];
+  products &&
+    products.map(product => {
+      return (
+        productBrands.push(product.brand)
+        
+      );
+    });
+  const individualProductBrands= getIndividualItemArray(productBrands);
 
+  return individualProductBrands;
+};
+export const getIndividualCase = products => {
+  let productCase= [];
+  products &&
+    products.map(product => {
+      return (
+        productCase.push(product.case)
+        
+      );
+    });
+  const individualProductCase= getIndividualItemArray(productCase);
+
+  return individualProductCase;
+};
+export const getIndividualTraction = products => {
+  let productTraction= [];
+  products &&
+    products.map(product => {
+      return (
+        productTraction.push(product.traction)
+        
+      );
+    });
+  const individualProductTraction= getIndividualItemArray(productTraction);
+
+  return individualProductTraction;
+};
+export const getIndividualPower = products => {
+  let productPower= [];
+  products &&
+    products.map(product => {
+      return (
+        productPower.push(product.power)
+        
+      );
+    });
+  const individualProductPower= getIndividualItemArray(productPower);
+
+  return individualProductPower;
+};
+export const getIndividualGear = products => {
+  let productGear= [];
+  products &&
+    products.map(product => {
+      return (
+        productGear.push(product.gear)
+        
+      );
+    });
+  const individualProductGear= getIndividualItemArray(productGear);
+
+  return individualProductGear;
+};
 // get individual sizes
 export const getProductsIndividualSizes = products => {
   let productSizes = [];

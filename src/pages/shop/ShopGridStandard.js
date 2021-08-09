@@ -4,15 +4,14 @@ import MetaTags from 'react-meta-tags';
 import Paginator from 'react-hooks-paginator';
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { connect } from 'react-redux';
-import { getSortedProducts } from '../../helpers/product';
+import { getSortedProducts,getSortedFilterProducts } from '../../helpers/product';
 import LayoutOne from '../../layouts/LayoutOne';
 import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
 import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
-import data from '../../data/products.json'
+
 const ShopGridStandard = ({location, products}) => {
-    console.log(data)
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -22,6 +21,13 @@ const ShopGridStandard = ({location, products}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
+    const [color, setColor] = useState("");
+    const [brand, setBrand] = useState("");
+    const [gear, setGear] = useState("");
+    const [caseType, setCase] = useState("");
+    const [traction, setTraction] = useState("");
+    const [power, setPower] = useState("");
+    const [all, setAll] = useState("");
 
     const pageLimit = 15;
     const {pathname} = location;
@@ -30,45 +36,53 @@ const ShopGridStandard = ({location, products}) => {
         setLayout(layout)
     }
 
-    const getSortParams = (sortType, sortValue) => {
+    const getSortParams = (brand,color,gear,caseType,traction,power,all) => {
+        setBrand(brand);
+        setColor(color);
+        setGear(gear);
+        setCase(caseType);
+        setTraction(traction);
+        setPower(power);
+        setAll(all)
+    }
+  
+    const getFilterSortParams = (sortType, sortValue) => {
         setSortType(sortType);
         setSortValue(sortValue);
     }
 
-    const getFilterSortParams = (sortType, sortValue) => {
-        setFilterSortType(sortType);
-        setFilterSortValue(sortValue);
-    }
-
     useEffect(() => {
-        let sortedProducts = getSortedProducts(products, sortType, sortValue);
-        const filterSortedProducts = getSortedProducts(sortedProducts, filterSortType, filterSortValue);
+
+        let sortedProducts = getSortedProducts(products,brand,color,gear,caseType,traction,power,all);
+        console.log(sortType)
+        const filterSortedProducts = getSortedFilterProducts(sortedProducts,sortType, sortValue);
         sortedProducts = filterSortedProducts;
         setSortedProducts(sortedProducts);
         setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-    }, [offset, products, sortType, sortValue, filterSortType, filterSortValue ]);
+    }, [offset, products, all, sortType, sortValue, brand,color,gear,caseType,traction,power, filterSortType, filterSortValue ]);
 
     return (
         <Fragment>
             <MetaTags>
-                <title>Kadir Bey Otomotiv | Araçlar</title>
+                <title>Flone | Shop Page</title>
                 <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
             </MetaTags>
- 
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Anasayfa</BreadcrumbsItem>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Araç Satış</BreadcrumbsItem>
 
-            <LayoutOne   headerContainerClass="container-fluid"
-       headerPaddingClass="header-padding-1">
-         
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Shop</BreadcrumbsItem>
+
+            <LayoutOne headerTop="visible">
+                {/* breadcrumb */}
                 <Breadcrumb />
-                
 
                 <div className="shop-area pt-95 pb-100">
                     <div className="container">
                         <div className="row">
-                        
-                            <div className="col-lg-12 order-1 order-lg-2">
+                            <div className="col-lg-3 order-2 order-lg-1">
+                                {/* shop sidebar */}
+                                <ShopSidebar products={products}  getSortParams={getSortParams} sideSpaceClass="mr-30"/>
+                            </div>
+                            <div className="col-lg-9 order-1 order-lg-2">
                                 {/* shop topbar default */}
                                 <ShopTopbar getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={products.length} sortedProductCount={currentData.length} />
 

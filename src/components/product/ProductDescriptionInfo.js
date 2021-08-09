@@ -43,184 +43,7 @@ const ProductDescriptionInfo = ({
   return (
     <div className="product-details-content ml-70">
       <h2>{product.name}</h2>
-     
-      <div className="pro-details-list">
-        <table className="table">
-          <tbody>
-          <tr>
-              <td>
-              <b>  Fiyat</b>
-              </td>
-              <td>
-                {product.price}₺
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-               <b> Marka </b>
-              </td>
-              <td>
-                {product.brand}
-              </td>
-
-            </tr>
-            <tr>
-              <td>
-              <b>  Seri</b>
-              </td>
-              <td>
-                {product.serial}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>  Model</b>
-              </td>
-              <td>
-                {product.model}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>   Yıl</b>
-              </td>
-              <td>
-                {product.year}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>  Yakıt</b>
-              </td>
-              <td>
-                {product.fuel}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>    Vites</b>
-              </td>
-              <td>
-                {product.gear}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>  KM</b>
-              </td>
-              <td>
-                {product.km}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b> Kasa Tipi</b>
-              </td>
-              <td>
-                {product.case}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>  Motor Gücü</b>
-              </td>
-              <td>
-                {product.power}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b> Motor Hacmi</b>
-              </td>
-              <td>
-                {product.colume}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b> Çekiş</b>
-              </td>
-              <td>
-                {product.traction}
-              </td>
-              
-            </tr>
-            <tr>
-              <td>
-              <b>  Renk</b>
-              </td>
-              <td>
-                {product.color}
-              </td>
-              
-            </tr>
-          </tbody>
-        </table>
-        <p>{product.shortDescription}</p>
-      </div>
-
-     
-    </div>
-  );
-};
-
-ProductDescriptionInfo.propTypes = {
-  addToCart: PropTypes.func,
-  addToCompare: PropTypes.func,
-  addToWishlist: PropTypes.func,
-  addToast: PropTypes.func,
-  cartItems: PropTypes.array,
-  compareItem: PropTypes.array,
-  currency: PropTypes.object,
-  discountedPrice: PropTypes.number,
-  finalDiscountedPrice: PropTypes.number,
-  finalProductPrice: PropTypes.number,
-  product: PropTypes.object,
-  wishlistItem: PropTypes.object
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addToCart: (
-      item,
-      addToast,
-      quantityCount,
-      selectedProductColor,
-      selectedProductSize
-    ) => {
-      dispatch(
-        addToCart(
-          item,
-          addToast,
-          quantityCount,
-          selectedProductColor,
-          selectedProductSize
-        )
-      );
-    },
-    addToWishlist: (item, addToast) => {
-      dispatch(addToWishlist(item, addToast));
-    },
-    addToCompare: (item, addToast) => {
-      dispatch(addToCompare(item, addToast));
-    }
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ProductDescriptionInfo);
-/**
- * 
- *  <div className="product-details-price">
+      <div className="product-details-price">
         {discountedPrice !== null ? (
           <Fragment>
             <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
@@ -241,7 +64,11 @@ export default connect(null, mapDispatchToProps)(ProductDescriptionInfo);
       ) : (
         ""
       )}
- *  {product.variation ? (
+      <div className="pro-details-list">
+        <p>{product.shortDescription}</p>
+      </div>
+
+      {product.variation ? (
         <div className="pro-details-size-color">
           <div className="pro-details-color-wrap">
             <span>Color</span>
@@ -469,4 +296,51 @@ export default connect(null, mapDispatchToProps)(ProductDescriptionInfo);
           </li>
         </ul>
       </div>
- */
+    </div>
+  );
+};
+
+ProductDescriptionInfo.propTypes = {
+  addToCart: PropTypes.func,
+  addToCompare: PropTypes.func,
+  addToWishlist: PropTypes.func,
+  addToast: PropTypes.func,
+  cartItems: PropTypes.array,
+  compareItem: PropTypes.array,
+  currency: PropTypes.object,
+  discountedPrice: PropTypes.number,
+  finalDiscountedPrice: PropTypes.number,
+  finalProductPrice: PropTypes.number,
+  product: PropTypes.object,
+  wishlistItem: PropTypes.object
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: (
+      item,
+      addToast,
+      quantityCount,
+      selectedProductColor,
+      selectedProductSize
+    ) => {
+      dispatch(
+        addToCart(
+          item,
+          addToast,
+          quantityCount,
+          selectedProductColor,
+          selectedProductSize
+        )
+      );
+    },
+    addToWishlist: (item, addToast) => {
+      dispatch(addToWishlist(item, addToast));
+    },
+    addToCompare: (item, addToast) => {
+      dispatch(addToCompare(item, addToast));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProductDescriptionInfo);
